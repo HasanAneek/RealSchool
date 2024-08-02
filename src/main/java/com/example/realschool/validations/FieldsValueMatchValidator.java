@@ -1,11 +1,15 @@
 package com.example.realschool.validations;
 
 import com.example.realschool.annotation.FieldsValueMatch;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.BeanWrapperImpl;
 
-public class FieldsValueMatchValidator implements ConstraintValidator<FieldsValueMatch, Object> {
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+
+public class FieldsValueMatchValidator
+        implements ConstraintValidator<FieldsValueMatch, Object> {
+
     private String field;
     private String fieldMatch;
 

@@ -4,10 +4,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
 
 @Configuration
 public class ProjectSecurityConfig {
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -25,8 +34,7 @@ public class ProjectSecurityConfig {
                             .requestMatchers("/assets/**").permitAll()
                             .requestMatchers("/login").permitAll()
                             .requestMatchers("/logout").permitAll()
-                            .requestMatchers("/public/**").permitAll()
-                            .anyRequest().authenticated();
+                            .requestMatchers("/public/**").permitAll();
                 })
                 .formLogin(form -> form
                         .loginPage("/login")
@@ -42,6 +50,8 @@ public class ProjectSecurityConfig {
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/saveMsg")
                         .ignoringRequestMatchers("/public/**")
                 );
+
         return http.build();
     }
+
 }

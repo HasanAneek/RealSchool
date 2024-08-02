@@ -5,12 +5,13 @@ import com.example.realschool.model.Roles;
 import com.example.realschool.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -22,17 +23,20 @@ public class RealSchoolUsernamePwdAuthenticationProvider implements Authenticati
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String email = (String) authentication.getName();
-        String pwd = (String) authentication.getCredentials();
-        Person person = personRepository.readByEmail(email);
+        String email = authentication.getName();
+        String pwd = authentication.getCredentials().toString();
+        Person person = personRepository.findByEmail(email);
 
-        if (person.getPersonId() > 0 && pwd.equals(person.getPwd())) {
-            return new UsernamePasswordAuthenticationToken(person.getName(), pwd,
+        if (person != null  && passwordEncoder.matches(pwd, person.getPwd())) {
+            return new UsernamePasswordAuthenticationToken(person.getName(), null,
                     getGrantedAuthorities(person.getRoles()));
         } else {
-            throw new UsernameNotFoundException("User not found");
+            throw new BadCredentialsException("Invalid credentials!");
         }
     }
 
@@ -47,3 +51,5 @@ public class RealSchoolUsernamePwdAuthenticationProvider implements Authenticati
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
+
+

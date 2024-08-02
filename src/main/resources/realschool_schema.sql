@@ -1,6 +1,6 @@
-create database realschool;
+create database realschools;
 
-use realschool;
+use realschools;
 
 CREATE TABLE IF NOT EXISTS `contact_msg`
 (

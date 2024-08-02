@@ -4,5 +4,5 @@ import com.example.realschool.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PersonRepository extends JpaRepository<Person, Integer> {
-    Person readByEmail(String email);
+    Person findByEmail(String email);
 }

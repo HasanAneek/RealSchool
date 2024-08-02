@@ -31,7 +31,7 @@ public class ContactController {
 
 
     @RequestMapping("/contact")
-    public String contact(Model model) {
+    public String displayContactPage(Model model) {
         model.addAttribute("contact", new Contact());
         return "contact";
     }
@@ -39,7 +39,7 @@ public class ContactController {
     @PostMapping("/saveMsg")
     public String saveMessage(@Valid @ModelAttribute("contact") Contact contact, Errors errors) {
         if (errors.hasErrors()) {
-            log.error("Contact error:{}", errors);
+            log.error("Contact error: {}", errors.toString());
             return "contact";
         }
         contactService.saveMessageDetails(contact);

@@ -17,14 +17,15 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
-    public void saveMessageDetails(Contact contact) {
+    public boolean saveMessageDetails(Contact contact) {
         boolean isSaved = false;
         contact.setStatus(RealSchoolConstants.OPEN);
 
         Contact savedContact = contactRepository.save(contact);
-        if (savedContact.getContactId() > 0) {
+        if (null != savedContact && savedContact.getContactId() > 0) {
             isSaved = true;
         }
+        return isSaved;
     }
 
 
@@ -32,12 +33,12 @@ public class ContactService {
         boolean isUpdated = false;
 
         Optional<Contact> contact = contactRepository.findById(ContactId);
-        contact.ifPresent(value -> {
-            value.setStatus(RealSchoolConstants.CLOSE);
+        contact.ifPresent(contact1 -> {
+            contact1.setStatus(RealSchoolConstants.CLOSE);
         });
 
         Contact updatedContact = contactRepository.save(contact.get());
-        if (updatedContact.getContactId() > 0) {
+        if (null != updatedContact && updatedContact.getUpdatedBy() != null) {
             isUpdated = true;
         }
         return isUpdated;
