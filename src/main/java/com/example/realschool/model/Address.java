@@ -11,12 +11,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 public class Address extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int addressId;
 
     @NotBlank(message="Address1 must not be blank")
@@ -35,6 +36,6 @@ public class Address extends BaseEntity {
 
     @NotBlank(message="Zip Code must not be blank")
     @Pattern(regexp="(^$|[0-9]{5})",message = "Zip Code must be 5 digits")
-    private int zipCode;
+    private String zipCode;
 
 }

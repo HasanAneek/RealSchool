@@ -33,7 +33,7 @@ public class RealSchoolUsernamePwdAuthenticationProvider implements Authenticati
         Person person = personRepository.findByEmail(email);
 
         if (person != null  && passwordEncoder.matches(pwd, person.getPwd())) {
-            return new UsernamePasswordAuthenticationToken(person.getName(), null,
+            return new UsernamePasswordAuthenticationToken(email, null,
                     getGrantedAuthorities(person.getRoles()));
         } else {
             throw new BadCredentialsException("Invalid credentials!");

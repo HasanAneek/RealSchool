@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 public class Contact extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contact_id")
     private int contactId;
 
