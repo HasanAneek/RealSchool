@@ -22,7 +22,7 @@ public class RealClass extends BaseEntity {
     @Size(min = 3, message = "Name must be at least 3 characters long")
     private String name;
 
-    @OneToMany(mappedBy = "realClass", fetch = FetchType.EAGER,
+    @OneToMany(mappedBy = "realClass", fetch = FetchType.LAZY,
             cascade = CascadeType.PERSIST, targetEntity = Person.class)
     private Set<Person> persons;
 }
