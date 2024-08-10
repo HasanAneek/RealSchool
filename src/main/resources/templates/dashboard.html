@@ -33,6 +33,9 @@
 </section>
 <!-- //inner banner -->
 
+
+
+
 <!-- //Welcome block -->
 <section class="w3l-contact py-5" id="contact">
     <div class="container py-md-5 py-4">
@@ -45,6 +48,7 @@
     </div>
 </section>
 <!-- //Welcome block -->
+
 
 
 <div class="container py-md-5 py-4">
@@ -69,7 +73,7 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a th:href="@{/displayMessages}">
+                    <a th:href="@{/displayMessages/page/1?sortField=name&sortDir=desc}">
                         <div class="overview-item overview-item--c3">
                             <div class="overview__inner">
                                 <div class="overview-box clearfix">
@@ -227,3 +231,8 @@
 </body>
 
 </html>
+
+
+
+
+

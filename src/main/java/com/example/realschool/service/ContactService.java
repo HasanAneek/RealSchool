@@ -5,10 +5,11 @@ import com.example.realschool.model.Contact;
 import com.example.realschool.repository.ContactRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -17,34 +18,31 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
-    public boolean saveMessageDetails(Contact contact) {
+    public void saveMessageDetails(Contact contact) {
         boolean isSaved = false;
         contact.setStatus(RealSchoolConstants.OPEN);
 
         Contact savedContact = contactRepository.save(contact);
-        if (null != savedContact && savedContact.getContactId() > 0) {
+        if (savedContact.getContactId() > 0) {
             isSaved = true;
         }
-        return isSaved;
+    }
+
+    public Page<Contact> findMsgsWithOpenStatus(int pageNum, String sortField, String sortDir) {
+        int pageSize = 5;
+        Pageable pageable = PageRequest.of(pageNum - 1, pageSize, sortDir.equals("asc")
+                ? Sort.by(sortField).ascending() : Sort.by(sortField).descending());
+
+        return contactRepository.findByStatus(RealSchoolConstants.OPEN, pageable);
     }
 
 
-    public boolean updateMsgStatus(int ContactId) {
+    public void updateMsgStatus(int contactId) {
         boolean isUpdated = false;
 
-        Optional<Contact> contact = contactRepository.findById(ContactId);
-        contact.ifPresent(contact1 -> {
-            contact1.setStatus(RealSchoolConstants.CLOSE);
-        });
-
-        Contact updatedContact = contactRepository.save(contact.get());
-        if (null != updatedContact && updatedContact.getUpdatedBy() != null) {
+        int rows = contactRepository.updateStatusById(RealSchoolConstants.CLOSE, contactId);
+        if (rows > 0) {
             isUpdated = true;
         }
-        return isUpdated;
-    }
-
-    public List<Contact> findMsgsWithOpenStatus() {
-        return contactRepository.findByStatus(RealSchoolConstants.OPEN);
     }
 }

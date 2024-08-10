@@ -20,26 +20,24 @@ public class ProjectSecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((requests) -> {
-                    requests
-                            .requestMatchers("/dashboard").authenticated()
-                            .requestMatchers("/displayMessages").hasRole("ADMIN")
-                            .requestMatchers("/admin/**").hasRole("ADMIN")
-                            .requestMatchers("/closeMsg/**").hasRole("ADMIN")
-                            .requestMatchers("/displayProfile").authenticated()
-                            .requestMatchers("/updateProfile").authenticated()
-                            .requestMatchers("/student/**").hasRole("STUDENT")
-                            .requestMatchers("/", "/home").permitAll()
-                            .requestMatchers("/contact").permitAll()
-                            .requestMatchers("/saveMsg").permitAll()
-                            .requestMatchers("/courses").permitAll()
-                            .requestMatchers("/holidays/**").permitAll()
-                            .requestMatchers("/about").permitAll()
-                            .requestMatchers("/assets/**").permitAll()
-                            .requestMatchers("/login").permitAll()
-                            .requestMatchers("/logout").permitAll()
-                            .requestMatchers("/public/**").permitAll();
-                })
+        http.authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/dashboard").authenticated()
+                        .requestMatchers("/displayMessages/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/closeMsg/**").hasRole("ADMIN")
+                        .requestMatchers("/displayProfile").authenticated()
+                        .requestMatchers("/updateProfile").authenticated()
+                        .requestMatchers("/student/**").hasRole("STUDENT")
+                        .requestMatchers("/", "/home").permitAll()
+                        .requestMatchers("/contact").permitAll()
+                        .requestMatchers("/saveMsg").permitAll()
+                        .requestMatchers("/courses").permitAll()
+                        .requestMatchers("/holidays/**").permitAll()
+                        .requestMatchers("/about").permitAll()
+                        .requestMatchers("/assets/**").permitAll()
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/logout").permitAll()
+                        .requestMatchers("/public/**").permitAll())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/dashboard")
@@ -57,5 +55,4 @@ public class ProjectSecurityConfig {
 
         return http.build();
     }
-
 }
