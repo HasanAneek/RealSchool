@@ -37,6 +37,7 @@ public class ProjectSecurityConfig {
                         .requestMatchers("/assets/**").permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/logout").permitAll()
+                        .requestMatchers("/api/**").authenticated()
                         .requestMatchers("/public/**").permitAll())
                 .formLogin(form -> form
                         .loginPage("/login")
@@ -49,8 +50,10 @@ public class ProjectSecurityConfig {
                         .permitAll())
 
                 .httpBasic(Customizer.withDefaults())
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/saveMsg")
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/saveMsg")
                         .ignoringRequestMatchers("/public/**")
+                        .ignoringRequestMatchers("/api/**")
                 );
 
         return http.build();
