@@ -19,6 +19,7 @@ import java.util.Optional;
 @Slf4j
 @RestController
 @RequestMapping("/api/contact")
+@CrossOrigin(origins = "*")
 public class ContactRestController {
 
     @Autowired
@@ -26,13 +27,13 @@ public class ContactRestController {
 
     @GetMapping("/getMessagesByStatus")
     public List<Contact> getMessagesByStatus(@RequestParam(name = "status") String status) {
-        return contactRepository.findByStatus(status);
+        return contactRepository.findAllByStatus(status);
     }
 
     @GetMapping("/getAllMsgsByStatus")
     public List<Contact> getAllMsgsByStatus(@RequestBody Contact contact) {
         if (contact.getStatus() != null) {
-            return contactRepository.findByStatus(contact.getStatus());
+            return contactRepository.findAllByStatus(contact.getStatus());
         } else {
             return List.of();
         }

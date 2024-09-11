@@ -28,7 +28,16 @@ public class DashboardController {
         }
 
         session.setAttribute("loggedInPerson", person);
+//        logMessages();
         return "dashboard";
+    }
+
+    private void logMessages() {
+        log.error("Error Message from Dashboard Page");
+        log.warn("Warn Message from Dashboard Page");
+        log.info("Info Message from Dashboard Page");
+        log.debug("Debug Message from Dashboard Page");
+        log.trace("Trace Message from Dashboard Page");
     }
 
 }

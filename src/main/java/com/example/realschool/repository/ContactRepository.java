@@ -13,8 +13,10 @@ import java.util.List;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
-    List<Contact> findByStatus(String status);
+//    @RestResource(path = "findByStatus")
+    List<Contact> findAllByStatus(String status);
 
+//    @RestResource(path = "findByStatusNamed")
     Page<Contact> findByStatus(String status, Pageable pageable);
 
 

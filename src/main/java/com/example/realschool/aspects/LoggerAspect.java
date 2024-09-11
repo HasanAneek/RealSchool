@@ -30,8 +30,7 @@ public class LoggerAspect {
 
     @AfterThrowing(value = "execution(* com.example.realschool.*.*(..))", throwing = "ex")
     public void logException(JoinPoint joinPoint, Exception ex) {
-//        log.error("{} An exception happened due to : {}", joinPoint.getSignature(), ex.getMessage());
-        log.error(joinPoint.getSignature()+ " An exception happened due to : "+ex.getMessage());
+        log.error("{} An exception happened due to : {}", joinPoint.getSignature(), ex.getMessage());
 
     }
 }
