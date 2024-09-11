@@ -1,0 +1,47 @@
+2024-09-11 14:56:34 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-11 14:56:34 [restartedMain] INFO  c.e.realschool.RealSchoolApplication - Starting RealSchoolApplication using Java 21.0.2 with PID 62361 (/Users/jahidaneek/Documents/Developers/Java SpringBoot/realschool/target/classes started by jahidaneek in /Users/jahidaneek/Documents/Developers/Java SpringBoot/realschool)
+2024-09-11 14:56:34 [restartedMain] INFO  c.e.realschool.RealSchoolApplication - No active profile set, falling back to 1 default profile: "default"
+2024-09-11 14:56:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-11 14:56:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-11 14:56:34 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-11 14:56:34 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 7 JPA repository interfaces.
+2024-09-11 14:56:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-09-11 14:56:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-11 14:56:34 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-11 14:56:34 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-11 14:56:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-11 14:56:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 745 ms
+2024-09-11 14:56:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-11 14:56:35 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37d20572
+2024-09-11 14:56:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-11 14:56:35 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-11 14:56:35 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 14:56:35 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-09-11 14:56:35 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-11 14:56:35 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-11 14:56:35 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-11 14:56:35 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - PasswordEncoder com.example.realschool.config.ProjectSecurityConfig.passwordEncoder() method execution start
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - Time took to execute PasswordEncoder com.example.realschool.config.ProjectSecurityConfig.passwordEncoder() method is : 0
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - PasswordEncoder com.example.realschool.config.ProjectSecurityConfig.passwordEncoder() method execution end
+2024-09-11 14:56:36 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name realSchoolUsernamePwdAuthenticationProvider
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - SecurityFilterChain com.example.realschool.config.ProjectSecurityConfig.defaultSecurityFilterChain(HttpSecurity) method execution start
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - void com.example.realschool.config.WebConfig.addViewControllers(ViewControllerRegistry) method execution start
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - Time took to execute void com.example.realschool.config.WebConfig.addViewControllers(ViewControllerRegistry) method is : 0
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - void com.example.realschool.config.WebConfig.addViewControllers(ViewControllerRegistry) method execution end
+2024-09-11 14:56:36 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - Time took to execute SecurityFilterChain com.example.realschool.config.ProjectSecurityConfig.defaultSecurityFilterChain(HttpSecurity) method is : 314
+2024-09-11 14:56:36 [restartedMain] INFO  c.e.realschool.aspects.LoggerAspect - SecurityFilterChain com.example.realschool.config.ProjectSecurityConfig.defaultSecurityFilterChain(HttpSecurity) method execution end
+2024-09-11 14:56:37 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-09-11 14:56:37 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-11 14:56:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-09-11 14:56:37 [restartedMain] INFO  c.e.realschool.RealSchoolApplication - Started RealSchoolApplication in 3.115 seconds (process running for 3.434)
+2024-09-11 14:56:37 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-11 14:56:37 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-11 14:56:37 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-09-11 14:56:52 [http-nio-8080-exec-1] INFO  c.e.realschool.aspects.LoggerAspect - String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method execution start
+2024-09-11 14:56:52 [http-nio-8080-exec-1] INFO  c.e.realschool.aspects.LoggerAspect - Time took to execute String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method is : 0
+2024-09-11 14:56:52 [http-nio-8080-exec-1] INFO  c.e.realschool.aspects.LoggerAspect - String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method execution end
+2024-09-11 14:56:52 [http-nio-8080-exec-9] INFO  c.e.realschool.aspects.LoggerAspect - String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method execution start
+2024-09-11 14:56:52 [http-nio-8080-exec-9] INFO  c.e.realschool.aspects.LoggerAspect - Time took to execute String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method is : 0
+2024-09-11 14:56:52 [http-nio-8080-exec-9] INFO  c.e.realschool.aspects.LoggerAspect - String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method execution end

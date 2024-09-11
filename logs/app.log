@@ -1,0 +1,42 @@
+2024-09-11 14:54:51 ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - A "ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy" object is not assignable to a "ch.qos.logback.core.rolling.RollingPolicy" variable.
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - The class "ch.qos.logback.core.rolling.RollingPolicy" was loaded by 
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - [jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a] whereas object of type 
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - "ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy" was loaded by [jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a].
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.realschool.RealSchoolApplication.main(RealSchoolApplication.java:16)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - A "ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy" object is not assignable to a "ch.qos.logback.core.rolling.RollingPolicy" variable.
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - The class "ch.qos.logback.core.rolling.RollingPolicy" was loaded by 
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - [jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a] whereas object of type 
+ERROR in ch.qos.logback.core.joran.util.PropertySetter@45c8ebb8 - "ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy" was loaded by [jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a].
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:339)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:74)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 22 common frames omitted
