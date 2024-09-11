@@ -45,3 +45,6 @@
 2024-09-11 14:56:52 [http-nio-8080-exec-9] INFO  c.e.realschool.aspects.LoggerAspect - String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method execution start
 2024-09-11 14:56:52 [http-nio-8080-exec-9] INFO  c.e.realschool.aspects.LoggerAspect - Time took to execute String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method is : 0
 2024-09-11 14:56:52 [http-nio-8080-exec-9] INFO  c.e.realschool.aspects.LoggerAspect - String com.example.realschool.controller.LoginController.displayLoginPage(String,String,String,Model) method execution end
+2024-09-11 14:58:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-11 14:58:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-09-11 14:58:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

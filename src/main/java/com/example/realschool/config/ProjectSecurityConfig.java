@@ -25,10 +25,11 @@ public class ProjectSecurityConfig {
                         .requestMatchers("/displayMessages/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/closeMsg/**").hasRole("ADMIN")
+                        .requestMatchers("/realschool/actuator/**").hasRole("ADMIN")
+                        .requestMatchers("/student/**").hasRole("STUDENT")
                         .requestMatchers("/displayProfile").authenticated()
                         .requestMatchers("/updateProfile").authenticated()
                         .requestMatchers("/data-api/**").authenticated()
-                        .requestMatchers("/student/**").hasRole("STUDENT")
                         .requestMatchers("/", "/home").permitAll()
                         .requestMatchers("/contact").permitAll()
                         .requestMatchers("/saveMsg").permitAll()
@@ -56,6 +57,7 @@ public class ProjectSecurityConfig {
                         .ignoringRequestMatchers("/public/**")
                         .ignoringRequestMatchers("/api/**")
                         .ignoringRequestMatchers("/data-api/**")
+                        .ignoringRequestMatchers("/realschool/actuator/**")
                 );
 
         return http.build();
